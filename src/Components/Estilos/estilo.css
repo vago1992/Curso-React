@@ -1,0 +1,27 @@
+.menu{
+    display: flex;
+    font-family:'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: large;
+    list-style: none;
+    justify-content: space-around;
+    margin-bottom: 1%;
+}
+
+a{
+    color:yellow;
+    text-decoration: none;
+}
+
+.fondo{
+    background-color: black;
+}
+.carrito{
+    height: 100%;
+    width: 50px;
+    margin-top: 0px; 
+}
+
+
+
+
