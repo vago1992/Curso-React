@@ -11,15 +11,15 @@ const NavBar = () => {
                     <a href='Index'>E-Commerce Santiago</a>
                 </li>
                 <li>
-                    <a href='Zapatillas'> Zapatillas </a>
+                    <a href='Mangas'> Mangas </a>
                 </li>
 
                 <li>
-                    <a href='Remeras'> Remeras </a>
+                    <a href='Comics'> Comics </a>
                 </li>
 
                 <li>
-                    <a href='Buzos'> Buzos </a>
+                    <a href='Figuras'> Figuras </a>
 
                 </li>
 
