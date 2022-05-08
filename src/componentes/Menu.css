@@ -1,0 +1,55 @@
+.menu{
+    display: flex;
+    font-family:'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: large;
+    list-style: none;
+    justify-content: space-around;
+    margin-bottom: 1%;
+}
+
+a{
+    color:yellow;
+    text-decoration: none;
+}
+
+.fondo{
+    background-color: black;
+}
+.carrito{
+    height: 100%;
+    width: 60px;
+    margin-bottom: 0px;
+    
+}
+.saludo{
+    color: red;
+    height: 100px;
+    width: 200px;
+    margin-left: 520px;
+}
+
+.recuadro{
+    width: 160px;
+    margin-left: 525px;
+}
+p{
+    font-weight: bolder;
+}
+.countSum{
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+.countExtract{
+    margin-left: 4px;
+    margin-bottom: 4px;
+}
+
+.itemList{
+    margin-left: 550px;
+    margin-top: 10px;
+}
+.botonProd{
+    
+    margin-top: 5px;
+}
