@@ -12,28 +12,22 @@ function Menu (){
                         <Link to={"/"}>Home</Link>
                     </li>
                     <li>
-                        <Link to={"/Mangas"}>Mangas</Link>
+                        <Link to={"/categoria/Manga"}>Mangas</Link>
                     </li>
                     <li>
-                        <Link to={"/Comics"}>Comics</Link>
+                        <Link to={"/categoria/Comics"}>Comics</Link>
                     </li>
                     <li>
-                        <Link to={"/Merchandising"}>Merchandising</Link>
+                        <Link to={"/categoria/Merchandising"}>Merchandising</Link>
                     </li>
                     <li>
-                        <Link to={"/Contacto"}>Contacto</Link>
+                        <Link to={"/categoria/Contacto"}>Contacto</Link>
                     </li>
                     <li>
-                        
-                        <CartWidget/>
-
-                        
+                        <CartWidget/>   
                     </li>
-              
                 </ul>
             </nav>
-            
-
         </div>
 
     )
@@ -44,38 +38,5 @@ function Menu (){
 
 export default Menu;
 
-/* 
-    function Menu ({item}){
-    return (
-        <div className="fondo">
-            <nav>
-                <ul className="menu">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="nosotros.html">Nosotros</a>
-                    </li>
-                    <li>
-                        <a href="servicios.html">Servicios</a>
-                    </li>
-                    <li>
-                        <a href="galeria.html">Galeria</a>
-                    </li>
-                    <li>
-                        <a href="contacto.html">Contacto</a>            
-                    </li>
-                    <li>
-                        <CartWidget/>
-                    </li>
-              
-                </ul>
-            </nav>
-            {item()}
 
-        </div>
-
-    )
-
-*/
 

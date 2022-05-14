@@ -1,12 +1,9 @@
 import React from 'react'
 import Saludo from './Saludo'
 import { useState, useEffect } from 'react'
-import { Products } from './mocks/products'
+import { getProducts } from './mocks/products'
 import { ItemList } from './itemList'
 import { useParams } from 'react-router-dom'
-
-
-
 
 export default function ItemListContainer() {
     const[productos,setProductos]=useState([])
@@ -15,24 +12,21 @@ export default function ItemListContainer() {
 
     useEffect(() => {
         if (idCategoria) {
-            Products
+            getProducts
             .then(resp=>setProductos(resp.filter(prod=>prod.categoria=== idCategoria)))
             .catch(err=>console.log(err))
             .finally(()=>setLoading(false))
-            
-            
+    
         } else {
-            Products
+            getProducts
             .then(resp=>setProductos(resp))
             .catch(err=>console.log(err))
-            .finally(()=>setLoading(false))
-            
+            .finally(()=>setLoading(false))    
         }
        
     }, [idCategoria])
     console.log(idCategoria)
-
-    
+  
     return (
         <div>
             {loading ? (
@@ -43,6 +37,5 @@ export default function ItemListContainer() {
                 </>
             )}
         </div>
-
     )
 }

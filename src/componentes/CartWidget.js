@@ -7,8 +7,6 @@ export default function CartWidget() {
     return (
         <Link to={"/cart"}>
             <img src={carrito} className="carrito"/>
-
         </Link>
-        
     )
 }

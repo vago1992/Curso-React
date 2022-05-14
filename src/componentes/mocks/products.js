@@ -15,7 +15,7 @@ const productos=[
 ];
 
 
-export const Products= new Promise((resolve,reject)=>{
+export const getProducts= new Promise((resolve,reject)=>{
     
     let condicion=true
     if(condicion){

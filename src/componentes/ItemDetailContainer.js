@@ -1,10 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Products } from './mocks/products'
+import { getProducts } from './mocks/products'
 import ItemDetail from "./ItemDetail"
 import { useParams } from 'react-router-dom'
-
-
 
 export default function ItemDetailContainer() {
     const[producto,setProducto]=useState({})
@@ -12,7 +10,7 @@ export default function ItemDetailContainer() {
     const{idDetalle}=useParams()
 
     useEffect(() => {     
-        Products
+        getProducts
         .then(resp=>setProducto(resp.find(prod=>prod.id===idDetalle)))
         .catch(err=>console.log(err))
         .finally(()=>setLoading(false))
