@@ -6,7 +6,7 @@ import ItemCount from './ItemCount'
 
 export default function ItemDetail({producto}) {
     const[show,setShow]=useState(true)
-    const{addToCart}=useContext(CartContex)
+    const {cartlist, addToCart}=useContext(CartContex)
 
     const onAdd=(contador)=>{
         addToCart(producto,contador)

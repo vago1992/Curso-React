@@ -26,6 +26,8 @@ export default function ItemListContainer() {
        
     }, [idCategoria])
     console.log(idCategoria)
+
+    
   
     return (
         <div>
@@ -37,5 +39,6 @@ export default function ItemListContainer() {
                 </>
             )}
         </div>
+       
     )
 }

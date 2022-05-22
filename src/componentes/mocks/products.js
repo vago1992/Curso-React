@@ -3,7 +3,9 @@ import jujutsu from "./imagenes/Jujutsu.jpeg";
 import berserk from "./imagenes/Berserk.jpg";
 import aot from "./imagenes/Attack on titan.jpg";
 import DrStone from "./imagenes/Dr stone.jpg";
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import './products.css';
+import { useState } from "react";
 
 const productos=[
     {id:"1", nombre:"Naruto #1",price:650, precio:"$650",stock:100, categoria:"Manga", foto:<img src={naruto} className="fotoProducto"/>},
@@ -28,3 +30,4 @@ export const getProducts= new Promise((resolve,reject)=>{
         reject("error")
     }
 })
+

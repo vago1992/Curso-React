@@ -7,11 +7,17 @@ export const CartContexProvider =({children})=>{
     const [cartlist,setCartlist]=useState([])
     
     function addToCart(items, cantidad){
+        const itemToCart={...items,cantidad:cantidad,total:items.price*items.cantidad}
         if (isOnCartlist(items.id)){
-            console.log("Ya esta en el carrito")
-            sumarCantidad(items,cantidad)
+            const newCart=[...cartlist];
+            const indexEcontrado= newCart.findIndex(
+                (product)=>product.id===items.id
+            );
+            newCart[indexEcontrado].cantidad+=cantidad;
+            setCartlist(newCart);
+
         }else{
-            setCartlist([...cartlist,{...items,cantidad}])
+            setCartlist((previouscart)=>[...cartlist,itemToCart])
         };
     }
     const isOnCartlist=(id)=>{
@@ -42,6 +48,7 @@ export const CartContexProvider =({children})=>{
         <CartContex.Provider value={{
             cartlist,
             addToCart,
+            sumarCantidad,
             deleteItem,
             vaciarCarrito,
             total
