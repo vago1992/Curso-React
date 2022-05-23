@@ -9,7 +9,7 @@ export const Firebase=()=>{
         getMangas()
         
     },[])
-    
+
     
     const getMangas=()=>{
         const db=getFirestore()

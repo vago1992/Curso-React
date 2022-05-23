@@ -7,6 +7,7 @@ import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import './products.css';
 import { useState } from "react";
 
+
 const productos=[
     {id:"1", nombre:"Naruto #1",price:650, precio:"$650",stock:100, categoria:"Manga", foto:<img src={naruto} className="fotoProducto"/>},
     {id:"2", nombre:"Jujutsu Kaisen #12", price:650,precio:"$650",stock:55, categoria:"Manga", foto:<img src={jujutsu} className="fotoProducto"/>},
@@ -30,4 +31,20 @@ export const getProducts= new Promise((resolve,reject)=>{
         reject("error")
     }
 })
+
+export const getMangas=()=>{
+    const db=getFirestore()
+    const mangaCollection= collection(db,"mangas")
+    console.log(mangaCollection)
+    getDocs(mangaCollection).then(snapshot=>{
+        console.log(snapshot.size,"esta")
+        if (snapshot.size>0){
+            console.log(snapshot)
+            const mangaData=snapshot.docs.map(d=>({"id":d.id, ... d.data()}))
+            console.log(mangaData)
+            return mangaData   
+        }    
+    })
+
+}
 

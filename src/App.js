@@ -1,6 +1,6 @@
 import './App.css';
 import Menu from './componentes/Menu';
-import ItemListContainer from './componentes/ItemListContainer';
+import ItemListContainer2 from './componentes/itemlitscont2';
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import ItemDetailContainer from './componentes/ItemDetailContainer';
 import { CartContexProvider } from './context/cartContext';
@@ -14,15 +14,13 @@ function App() {
   return (
     <div>
       <CartContexProvider >
-        <button onClick={DataToFireBase}>Enviar Datos</button>
-        <Firebase/>
         <BrowserRouter className="App">
         
 
           <Menu/>
           <Routes>
-            <Route exact path="/" element={<ItemListContainer/>}/>
-            <Route exact path="/categoria/:idCategoria" element={<ItemListContainer/>}/>
+            <Route exact path="/" element={<ItemListContainer2/>}/>
+            <Route exact path="/categoria/:idCategoria" element={<ItemListContainer2/>}/>
             <Route exact path="/detalle" element={<ItemDetailContainer/>}/>
             <Route exact path="/detalle/:idDetalle" element={<ItemDetailContainer/>}/>
             <Route exact path="/cart" element={<CartView/>}/>
