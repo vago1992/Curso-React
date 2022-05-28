@@ -2,12 +2,10 @@ import React from 'react'
 import Items from './Items'
 import './Menu.css';
 
-export const ItemList = (productos) => {
+export const ItemList = ({mangas}) => {
     return (
-        <div className='itemList'>
-            {productos.productos.map((producto)=>(
-                <Items key={producto.id} producto={producto}/>
-            ))}    
+        <div>
+            {mangas.map(m=><Items key={m.id} mangas={m}/>)}
         </div>
     )
 }

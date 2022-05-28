@@ -1,12 +1,46 @@
 import React from 'react'
 import Saludo from './Saludo'
 import { useState, useEffect } from 'react'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import { getProducts } from './mocks/products'
 import { ItemList } from './itemList'
 import { useParams } from 'react-router-dom'
 
 export default function ItemListContainer() {
-    const[productos,setProductos]=useState([])
+    const[mangas,setmangas]=useState([])
+    const {idCategoria}= useParams()
+    console.log(idCategoria)
+
+    useEffect(()=>{
+        getMangas()
+        .catch(err=>console.log(err))    
+    },[idCategoria])
+    const getMangas=()=>{
+        const db=getFirestore()
+        let  mangaCollection=collection(db,"mangas")
+        if (typeof idCategoria !== "undefined"){
+            mangaCollection= (query(mangaCollection, where("Categoria","==",idCategoria)))
+        }
+        return getDocs(mangaCollection)
+            .then(snapshot=>{
+                if (snapshot.size>0){
+                    console.log(snapshot)
+                    const mangaData=snapshot.docs.map(d=>({"id":d.id, ... d.data()}))
+                    setmangas(mangaData)
+                    console.log(mangaData)
+                    console.log(idCategoria)    
+                }     
+        })
+    }  
+    return (
+        <div>     
+            <><Saludo saludo="Bienvenidos a mi E-Comerce" />
+             <ItemList mangas={mangas}/>
+            </>
+        </div>
+    )
+}
+    /*const[productos,setProductos]=useState([])
     const[loading,setLoading]=useState(true)
     const{idCategoria}=useParams()
 
@@ -40,5 +74,6 @@ export default function ItemListContainer() {
             )}
         </div>
        
-    )
-}
+    )*/
+
+

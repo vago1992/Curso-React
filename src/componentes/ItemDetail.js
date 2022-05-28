@@ -15,10 +15,10 @@ export default function ItemDetail({producto}) {
     
     return (
         <div>
-            <h2>{producto.nombre}</h2>
-            <h3>Precio:{producto.precio}</h3>
-            <h3>Stock:{producto.stock}</h3>
-            {producto.foto}
+            <h2>{producto.Title}</h2>
+            <h3>Precio:{producto.Precio}</h3>
+            <h3>Stock:{producto.Stock}</h3>
+            <img src={producto.Images} className="fotoProducto"/>
 
             {show ? <ItemCount stock={producto.stock} onAdd={onAdd} name={producto.nombre}/>: 
                 <div>

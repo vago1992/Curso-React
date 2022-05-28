@@ -5,7 +5,6 @@ import aot from "./imagenes/Attack on titan.jpg";
 import DrStone from "./imagenes/Dr stone.jpg";
 import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import './products.css';
-import { useState } from "react";
 
 
 const productos=[
@@ -32,19 +31,17 @@ export const getProducts= new Promise((resolve,reject)=>{
     }
 })
 
-export const getMangas=()=>{
+export const getMangas=async ()=>{
     const db=getFirestore()
     const mangaCollection= collection(db,"mangas")
     console.log(mangaCollection)
-    getDocs(mangaCollection).then(snapshot=>{
-        console.log(snapshot.size,"esta")
-        if (snapshot.size>0){
-            console.log(snapshot)
-            const mangaData=snapshot.docs.map(d=>({"id":d.id, ... d.data()}))
-            console.log(mangaData)
-            return mangaData   
-        }    
-    })
+    const snapshot = await getDocs(mangaCollection);
+    console.log(snapshot.size);
+    if (snapshot.size > 0) {
+        console.log(snapshot);
+        const mangaData = snapshot.docs.map(d => ({ "id": d.id, ...d.data() }));
+        console.log(mangaData);
+    }
 
 }
 
