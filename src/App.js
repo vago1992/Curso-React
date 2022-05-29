@@ -14,7 +14,6 @@ function App() {
   return (
     <div>
       <CartContexProvider >
-        <button onClick={DataToFireBase}>Enviar Datos</button>
         <Firebase/>
         <BrowserRouter className="App">
         
