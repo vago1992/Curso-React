@@ -3,7 +3,7 @@ import { CartContex } from '../context/cartContext'
 
 
 const CartView = () => {
-  const {cartlist, total,deleteItem}=useContext(CartContex)
+  const {cartlist, total,deleteItem,updateStock}=useContext(CartContex)
   return (
     <div>
         {cartlist.map((item)=>(
@@ -13,7 +13,8 @@ const CartView = () => {
                 <p>Precio:${item.Precio}</p>
                 <p>Total:${item.Precio*item.cantidad}</p>
                 <button onClick={()=>deleteItem(item.id)}>Eliminar</button>
-                
+                <button onClick={()=>updateStock(item)}>Comprar</button>
+
 
             </div>
             

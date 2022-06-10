@@ -1,3 +1,4 @@
+import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -45,6 +46,20 @@ export const CartContexProvider =({children})=>{
         console.log(totalCarrito)
         return totalCarrito
     }
+    const updateStock= (producto)=>{
+        console.log(producto.id,producto.Stock)
+        const db=getFirestore()
+        const id=producto.id
+        const stockUpdate= doc(db,"mangas",id)
+        console.log(stockUpdate)
+         updateDoc(stockUpdate,{Stock:producto.Stock-producto.cantidad}).then(response=>{
+            console.log(response, producto.Stock, producto.cantidad)
+        })
+        alert("Compra Realizada")
+        vaciarCarrito()
+        
+
+    }
     return(
         <CartContex.Provider value={{
             cartlist,
@@ -52,7 +67,8 @@ export const CartContexProvider =({children})=>{
             sumarCantidad,
             deleteItem,
             vaciarCarrito,
-            total
+            total,
+            updateStock
         }}>
             {children}
         </CartContex.Provider>
