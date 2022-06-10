@@ -9,27 +9,25 @@ import { useParams } from 'react-router-dom'
 export default function ItemListContainer() {
     const[mangas,setmangas]=useState([])
     const {idCategoria}= useParams()
-    console.log(idCategoria)
 
     useEffect(()=>{
         getMangas()
         .catch(err=>console.log(err))    
     },[idCategoria])
+
     const getMangas=()=>{
         const db=getFirestore()
         let  mangaCollection=collection(db,"mangas")
-        if (typeof idCategoria !== "undefined"){
+        if (idCategoria){
             mangaCollection= (query(mangaCollection, where("Categoria","==",idCategoria)))
         }
         return getDocs(mangaCollection)
             .then(snapshot=>{
-                if (snapshot.size>0){
-                    console.log(snapshot)
-                    const mangaData=snapshot.docs.map(d=>({"id":d.id, ... d.data()}))
-                    setmangas(mangaData)
-                    console.log(mangaData)
-                    console.log(idCategoria)    
-                }     
+                console.log(snapshot)
+                const mangaData=snapshot.docs.map(d=>({"id":d.id, ... d.data()}))
+                setmangas(mangaData)
+                console.log(mangaData)
+                console.log(idCategoria)   
         })
     }  
     return (

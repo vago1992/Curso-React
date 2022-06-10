@@ -7,7 +7,7 @@ export const CartContexProvider =({children})=>{
     const [cartlist,setCartlist]=useState([])
     
     function addToCart(items, cantidad){
-        const itemToCart={...items,cantidad:cantidad,total:items.price*items.cantidad}
+        const itemToCart={...items,cantidad:cantidad}
         if (isOnCartlist(items.id)){
             const newCart=[...cartlist];
             const indexEcontrado= newCart.findIndex(
@@ -39,9 +39,10 @@ export const CartContexProvider =({children})=>{
         setCartlist([])
     }
     const total=()=>{
-        const totalCarrito=cartlist.reduce((prev,curr)=>prev+curr.price*curr.cantidad,
+        const totalCarrito=cartlist.reduce((prev,curr)=>prev+curr.Precio*curr.cantidad,
         0
         );
+        console.log(totalCarrito)
         return totalCarrito
     }
     return(

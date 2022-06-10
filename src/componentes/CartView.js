@@ -10,8 +10,8 @@ const CartView = () => {
             <div key={item.id}>
                 <h1>{item.nombre}</h1>
                 <p>Cantidad:{item.cantidad}</p>
-                <p>Precio:{item.precio}</p>
-                <p>Total:{item.total}</p>
+                <p>Precio:${item.Precio}</p>
+                <p>Total:${item.Precio*item.cantidad}</p>
                 <button onClick={()=>deleteItem(item.id)}>Eliminar</button>
                 
 

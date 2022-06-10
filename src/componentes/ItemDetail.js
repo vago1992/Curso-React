@@ -16,11 +16,11 @@ export default function ItemDetail({producto}) {
     return (
         <div>
             <h2>{producto.Title}</h2>
-            <h3>Precio:{producto.Precio}</h3>
+            <h3>Precio:{producto.Price}</h3>
             <h3>Stock:{producto.Stock}</h3>
             <img src={producto.Images} className="fotoProducto"/>
 
-            {show ? <ItemCount stock={producto.stock} onAdd={onAdd} name={producto.nombre}/>: 
+            {show ? <ItemCount stock={producto.Stock} onAdd={onAdd} name={producto.Title}/>: 
                 <div>
                     <Link to={"/cart"}><button>Finalizar Compra</button></Link>
                     <Link to={"/"}><button>Seguir Comprando</button></Link>
